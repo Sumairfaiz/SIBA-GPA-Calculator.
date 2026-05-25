@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.sumair.gradetracker.GradeTrackerController"
+            prefWidth="800" prefHeight="600"
+            style="-fx-background-color:#1a1a2e;">
+    <top>
+        <Label text="GPA Calculator"
+               style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #e0e0e0;
+              -fx-background-color: #16213e; -fx-padding: 10 30 10 30;
+              -fx-background-radius: 10; -fx-border-color: #4a90d9;
+              -fx-border-radius: 10; -fx-border-width: 2;"
+               BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets top="20" bottom="10"/>
+            </BorderPane.margin>
+        </Label>
+
+    </top>
+
+    <center>
+        <VBox spacing="10" style="-fx-padding: 20;">
+            <HBox spacing="10" maxWidth="Infinity">
+                <TextField fx:id="subjectField" promptText="Subject Name" HBox.hgrow="ALWAYS"
+                           style="-fx-border-color: #4a90d9; -fx-border-radius: 4; -fx-background-radius: 4;-fx-background-radius: 20; -fx-border-radius: 20;"/>
+                <TextField fx:id="marksField" promptText="Marks" prefWidth="80"
+                           style="-fx-border-color: #4a90d9; -fx-border-radius: 4; -fx-background-radius: 4;-fx-background-radius: 20; -fx-border-radius: 20;"/>
+                <TextField fx:id="outOfField" promptText="Out of (50/100)" prefWidth="120"
+                           style="-fx-border-color: #4a90d9; -fx-border-radius: 4; -fx-background-radius: 4;-fx-background-radius: 20; -fx-border-radius: 20;"/>
+                <TextField fx:id="creditField" promptText="Credit Hours" prefWidth="100"
+                           style="-fx-border-color: #4a90d9; -fx-border-radius: 4; -fx-background-radius: 4;-fx-background-radius: 20; -fx-border-radius: 20;"/>
+                <Button text="Add Row" onAction="#addRow"
+                        style="-fx-background-color: #4a90d9; -fx-text-fill: white;-fx-background-radius: 20; -fx-border-radius: 20;"/>
+
+            </HBox>
+            <TableView fx:id="gradeTable" prefHeight="350"
+                       style="-fx-background-color: #16213e; -fx-table-header-row-background: #2c3e6e;">
+                <columns>
+                    <TableColumn fx:id="subjectCol" text="Subject" prefWidth="200"/>
+                    <TableColumn fx:id="marksCol" text="Marks" prefWidth="80"/>
+                    <TableColumn fx:id="outOfCol" text="Out Of" prefWidth="80"/>
+                    <TableColumn fx:id="gradeCol" text="Grade" prefWidth="80"/>
+                    <TableColumn fx:id="gpCol" text="GP" prefWidth="80"/>
+                    <TableColumn fx:id="creditCol" text="Credit Hours" prefWidth="100"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+    <bottom>
+        <VBox spacing="15" style="-fx-padding: 30;" alignment="CENTER">
+            <HBox spacing="15" alignment="CENTER">
+                <Button text="Calculate GPA" onAction="#calculateGPA"
+                        style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;-fx-background-radius: 20; -fx-border-radius: 20;"
+                        prefWidth="150"/>
+                <Button text="Remove Last Row" onAction="#removeRow"
+                        style="-fx-background-color: #e67e22; -fx-text-fill: white; -fx-font-size: 14px;-fx-background-radius: 20; -fx-border-radius: 20;"
+                        prefWidth="150"/>
+                <Button text="Clear Table" onAction="#clearTable"
+                        style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-size: 14px;-fx-background-radius: 20; -fx-border-radius: 20;"
+                        prefWidth="120"/>
+            </HBox>
+            <Label fx:id="gpaLabel" text="GPA: --"
+                    style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #f0c040;
+              -fx-background-color: #16213e; -fx-padding: 10 20 10 20;
+              -fx-background-radius: 10; -fx-border-color: #f0c040;
+              -fx-border-radius: 10; -fx-border-width: 2;"/>
+        </VBox>
+    </bottom>
+</BorderPane>
